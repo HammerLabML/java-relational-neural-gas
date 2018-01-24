@@ -50,11 +50,14 @@ or declaring a maven dependency to
 &lt;/dependency&gt;
 </pre>
 
-If you want to compile the package from source you can download the source code via `git pull` <!-- TODO GIT LINK--> and use the command `mvn package` to compile a .jar distribution.
+If you want to compile the package from source you can download the source code via
+`git pull https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas.git` and use the
+command `mvn package` to compile a .jar distribution.
 
 You can download the javadoc either via maven or directly as a .zip file <!-- TODO Link -->,
-or compile it yourself by downloading the source code via `git pull` and using the command
-`mvn generate-sources javadoc:javadoc`.
+or compile it yourself by downloading the source code via
+`git pull https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas.git` and using the
+command `mvn generate-sources javadoc:javadoc`.
 
 If you want to use the package from MATLAB, please download the .jar distribution and add the
 line
@@ -167,8 +170,7 @@ Our second trick is to compute the distances between prototypes and data points 
 can be done via the following formula (the proof as well as the theory behind it can be found in
 [Hammer and Hasenfuss (2010)][3]):
 
-<center>d(x<sub>i</sub>, w<sub>k</sub>)² = <strong>&alpha;<sub>k</sub></strong> &middot; <strong>D</strong>(:, i)²
-- 0.5 &middot; <strong>&alpha;<sub>k</sub></strong> &middot; <strong>D</strong>² &middot; <strong>&alpha;<sub>k</sub></strong><sup>T</sup></strong></center>
+<center>d(x<sub>i</sub>, w<sub>k</sub>)² = <strong>&alpha;<sub>k</sub></strong> &middot; <strong>D</strong>(:, i)² - 0.5 &middot; <strong>&alpha;<sub>k</sub></strong> &middot; <strong>D</strong>² &middot; <strong>&alpha;<sub>k</sub></strong><sup>T</sup></strong></center>
 
 where <strong>&alpha;<sub>k</sub></strong> is the vector of convex coefficients for prototype k,
 D(:, i)² is the entry-wise squared i-th column of the distance matrix D and D² is the entry-wise
