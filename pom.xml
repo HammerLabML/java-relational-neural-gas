@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Relational Neural Gas
+
+Copyright (C) 2015-2017
+Benjamin Paaßen
+AG Machine Learning
+Centre of Excellence Cognitive Interaction Technology (CITEC)
+University of Bielefeld
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.cit-ec.ml</groupId>
+	<artifactId>rng</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>Relational Neural Gas</name>
+	<description>This is an implementation of the Neural Gas algorithm on
+		distance data (Relational Neural Gas) for unsupervised clustering.
+
+		We recommend that you use the functions provided by the RelationalNeuralGas
+		class for your purposes. All other classes and functions are utilities which
+		are used by this central class. In particular, you can use RelationalNeuralGas.train()
+		to obtain a RNGModel (i.e. a clustering of your data), and subsequently
+		you can use RelationalNeuralGas.getAssignments() to obtain the resulting
+		cluster assignments, and RelationalNeuralGas.classify() to cluster new points
+		which are not part of the training data set.
+
+		The underlying scientific work is summarized nicely in the dissertation
+		"Topographic Mapping of Dissimilarity Datasets" by Alexander Hasenfuss
+		(2009).
+
+		The basic properties of an Relational Neural Gas algorithm are the following:
+		1.) It is relational: The data is represented only in terms of a pairwise
+		distance matrix.
+		2.) It is a clustering method: The algorithm provides a clustering model,
+		that is: After calculation,
+		each data point should be assigned to a cluster (for this package here we
+		only consider hard clustering, that is: each data point is assigned to
+		exactly one cluster).
+		3.) It is a vector quantization method: Each cluster corresponds to a
+		prototype, which is in the center of the
+		cluster and data points are assigned to the cluster if and only if they are
+		closest to this particular prototype.
+		4.) It is rank-based: The updates of the prototypes depend only on
+		the distance ranking, not on the absolute value of the distances.
+	</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<netbeans.hint.license>gpl_license_header</netbeans.hint.license>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>The GNU General Public License, Version 3</name>
+			<url>https://gnu.org/licenses/gpl.html</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Benjamin Paaßen</name>
+			<email>bpaassen@techfak.uni-bielefeld.de</email>
+			<organization>Centre of Excellence - Cognitive Interaction Technology (CITEC),
+				Faculty of Technology,
+				Bielefeld University</organization>
+			<organizationUrl>https://cit-ec.de/tcs</organizationUrl>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- Default build properties -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<!-- javadoc plugin for javadoc generation without Netbeans -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<configuration><!-- TODO: Update link -->
+					<bottom>Copyright (C) 2015-2017 Benjamin Paaßen, AG Machine Learning, Centre of Excellence Cognitive Interaction Technology (CITEC), University of Bielefeld, licensed under the GPL v. 3: http://openresearch.cit-ec.de/projects/tcs . This documentation is licensed under the conditions of CC-BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/</bottom>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
