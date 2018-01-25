@@ -38,8 +38,7 @@ closest prototype (out-of-sample extension).
 
 This implementation is written for Java 7 and has no external dependencies. It is also fully
 compatible with Matlab as it only interfaces with primitive data types. You can access this package
-by either downloading the finished .jar file <!--TODO: Download link-->
-or declaring a maven dependency to
+by either downloading the [distribution package][4] or declaring a maven dependency to
 
 <pre>
 &lt;dependency&gt;
@@ -54,7 +53,7 @@ If you want to compile the package from source you can download the source code 
 `git pull https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas.git` and use the
 command `mvn package` to compile a .jar distribution.
 
-You can download the javadoc either via maven or directly as a .zip file <!-- TODO Link -->,
+You can download the javadoc either via the [distribution package][4], via maven,
 or compile it yourself by downloading the source code via
 `git pull https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas.git` and using the
 command `mvn generate-sources javadoc:javadoc`.
@@ -187,12 +186,14 @@ contained alongside this documentation is licensed unter the
 [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
 A copy of this license is contained in the `gpl-3.0.md` file alongside this README.
 
-## Literature
+## References
 
 * Hammer, B. and Hasenfuss, A. (2007). _Relational Neural Gas_. In: Hertzberg, J., Beetz, M., and Englert, R. (eds.). Proceedings of the 30th Annual German Conference on AI (KI 2007). Osnabrück, Germany. pp. 190-204. doi: [10.1007/978-3-540-74565-5_16][1]
 * Martinetz, T., and Schulten, K. (1991). _A 'Neural-Gas' Network Learns Topologies_. In: Kohonen, T., Mäkisara, K., Simula, O., and Kangas, J. (eds.). Artificial Neural Networks. Elsevier. pp. 397-402. [Link][2]
-* Hammer, B., and Hasenfuss, A. (2010). _Topographic Mapping of Large Dissimilarity Data Sets_. Neural Computation, 22(9). pp. 2229-2284. doi: [10.1162/NECO_a_00012](https://doi.org/10.1162/NECO_a_00012)
+* Hammer, B., and Hasenfuss, A. (2010). _Topographic Mapping of Large Dissimilarity Data Sets_. Neural Computation, 22(9). pp. 2229-2284. doi: [10.1162/NECO_a_00012](https://doi.org/10.1162/NECO_a_00012) ([preprint][3])
+* Paaßen, B. (2018). _Relational Neural Gas_. Bielefeld University. doi: [10.4119/unibi/2916980][4]
 
 [1]: https://doi.org/10.1007/978-3-540-74565-5_16 "Hammer, B. and Hasenfuss, A. (2007). Relational Neural Gas. In: Hertzberg, J., Beetz, M., and Englert, R. (eds.). Proceedings of the 30th Annual German Conference on AI (KI 2007). Osnabrück, Germany. pp. 190-204."
 [2]: https://www.ks.uiuc.edu/Publications/Papers/PDF/MART91B/MART91B.pdf "Martinetz, T., and Schulten, K. (1991). A 'Neural-Gas' Network Learns Topologies. In: Kohonen, T., Mäkisara, K., Simula, O., and Kangas, J. (eds.). Artificial Neural Networks. Elsevier. pp. 397-402."
 [3]: http://www.in.tu-clausthal.de/fileadmin/homes/techreports/ifi1001hammer.pdf "Hammer, B., and Hasenfuss, A. (2010). Topographic Mapping of Large Dissimilarity Data Sets. Neural Computation, 22(9). pp. 2229-2284. doi: 10.1162/NECO_a_00012"
+[4]: https://doi.org/10.4119/unibi/2916980 "Paaßen, B. (2018). Relational Neural Gas. Bielefeld University."
