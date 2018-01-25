@@ -1,3 +1,6 @@
 *~
 /target/
 /nbproject/
+/javadoc
+/rng-*.jar
+/rng-*.zip
