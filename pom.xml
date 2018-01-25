@@ -60,6 +60,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		4.) It is rank-based: The updates of the prototypes depend only on
 		the distance ranking, not on the absolute value of the distances.
 	</description>
+	<url>https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,6 +86,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		</developer>
 	</developers>
 
+	<scm>
+		<connection>scm:git:https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas.git</connection>
+		<developerConnection>scm:git:https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas.git</developerConnection>
+		<url>https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas</url>
+	</scm>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -100,7 +107,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.7.0</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -111,10 +118,81 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
-				<configuration><!-- TODO: Update link -->
-					<bottom>Copyright (C) 2015-2017 Benjamin Paaßen, AG Machine Learning, Centre of Excellence Cognitive Interaction Technology (CITEC), University of Bielefeld, licensed under the GPL v. 3: http://openresearch.cit-ec.de/projects/tcs . This documentation is licensed under the conditions of CC-BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/</bottom>
+				<configuration>
+					<bottom>Copyright (C) 2015-2017 Benjamin Paaßen, AG Machine Learning, Centre of Excellence Cognitive Interaction Technology (CITEC), University of Bielefeld, licensed under the GPL v. 3: https://gitlab.ub.uni-bielefeld.de/bpaassen/relational_neural_gas . This documentation is licensed under the conditions of CC-BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/</bottom>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<!-- This is a special profile for deploying a version, which generates
+		everything the mvn central repository requires. For all non-deploying builds
+		this is irrelevant. -->
+		<profile> 
+			<id>release</id>
+			<build>
+				<plugins>
+					<!-- Nexus Staging Plugin for Deploying to central repository -->
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.7</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+					<!-- Maven Source Plugin for generating a jar containing all sources.
+					This is required by the maven central repository. -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- Maven Javadoc Plugin for generating a jar containing all javadoc.
+					This is required by the maven central repository. -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9.1</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- Maven PGP Plugin for generating a pgp signature of the project.
+					This is required by the maven central repository. -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
